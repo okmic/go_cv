@@ -10,7 +10,6 @@ export default function Hero() {
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden px-4">
       <div className="relative z-10 text-center w-full max-w-6xl mx-auto">
-        {/* Go + Matrix Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#00ADD8]/30 bg-[#00ADD8]/5 backdrop-blur-sm mb-8">
           <span className="w-2 h-2 rounded-full bg-[#00ADD8] animate-pulse"></span>
           <span className="text-[#00ADD8] text-xs font-mono tracking-wider">GO BACKEND</span>

@@ -1,19 +1,73 @@
 import "./styles.css"
+import { useState, useEffect } from "react"
 
 export default function LoadingScreen({ onClick, isExiting }: { onClick: () => void, isExiting: boolean }) {
-    const exStyle = isExiting
-      ? 'opacity-0 scale-105 blur-md pointer-events-none'
-      : 'opacity-100 scale-100 blur-0'
+    const [progress, setProgress] = useState(0)
+    const [statusText, setStatusText] = useState("Initializing...")
+    
+    const statusMessages = [
+        { progress: 10, text: "Loading packages..." },
+        { progress: 25, text: "Initializing Go modules..." },
+        { progress: 40, text: "Building binary..." },
+        { progress: 55, text: "Starting goroutines..." },
+        { progress: 70, text: "Connecting to services..." },
+        { progress: 85, text: "Optimizing performance..." },
+        { progress: 100, text: "Ready!" }
+    ]
 
-    return <div className={`fixed w-screen h-screen flex flex-col justify-center items-center bg-[#000] ${exStyle}`}>
-    <div className="container" onClick={onClick}>
-        <div className="logo-masterpiece">
-            <div className="logo-pulse"></div>
-            <div className="logo-glow"></div>
-            <div className="logo-core">
-                <div className="logo-symbol">M²</div>
+    useEffect(() => {
+        if (isExiting) return
+        
+        let currentProgress = 0
+        const interval = setInterval(() => {
+            currentProgress += Math.random() * 3 + 1
+            if (currentProgress >= 100) {
+                currentProgress = 100
+                clearInterval(interval)
+            }
+            setProgress(Math.min(currentProgress, 100))
+            
+            const status = statusMessages.reduce((prev, curr) => {
+                return Math.abs(curr.progress - currentProgress) < Math.abs(prev.progress - currentProgress) ? curr : prev
+            })
+            setStatusText(status.text)
+        }, 150)
+
+        return () => clearInterval(interval)
+    }, [isExiting])
+
+    const exStyle = isExiting
+        ? 'opacity-0 scale-105 blur-md pointer-events-none'
+        : 'opacity-100 scale-100 blur-0'
+
+    return (
+        <div className={`fixed w-screen h-screen flex flex-col justify-center items-center bg-black ${exStyle}`}>
+            <div className="container" onClick={onClick}>
+                <div className="logo-masterpiece">
+                    <div className="logo-pulse"></div>
+                    <div className="logo-glow"></div>
+                    <div className="logo-core">
+                        <div className="logo-symbol">M</div>
+                    </div>
+                </div>
+                
+                <div className="loading-content">
+                    <div className="status-text">{statusText}</div>
+                    
+                    <div className="progress-bar-container">
+                        <div 
+                            className="progress-bar" 
+                            style={{ width: `${progress}%` }}
+                        ></div>
+                    </div>
+                    
+                    <div className="progress-percentage">{Math.round(progress)}%</div>
+                </div>
+                
+                <div className="skip-hint">
+                    <span>click to skip</span>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
+    )
 }

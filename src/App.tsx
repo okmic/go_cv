@@ -49,14 +49,12 @@ function App() {
               : 'opacity-0 translate-y-8 blur-sm'
           }`}
         >
-          {/* Go-style decorative separator */}
           <div className="relative">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00ADD8] to-transparent opacity-30"></div>
           </div>
 
           <Hero />
           
-          {/* Matrix-style divider */}
           <div className="relative py-8">
             <div className="absolute left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-[#00ADD8] to-transparent opacity-20"></div>
             <div className="flex items-center justify-center gap-4">
@@ -68,31 +66,7 @@ function App() {
           </div>
 
           <ValueProposition />
-          
-          {/* Go-style divider with terminal prompt */}
-          <div className="relative py-8">
-            <div className="flex items-center justify-center gap-6">
-              <div className="flex items-center gap-2 text-[#00ADD8]/30 font-mono text-xs">
-                <span className="text-[#00ADD8]/50">$</span>
-                <span className="tracking-wider">go build</span>
-              </div>
-              <div className="w-px h-4 bg-[#00ADD8]/10"></div>
-              <div className="flex items-center gap-2 text-[#00ADD8]/30 font-mono text-xs">
-                <span className="text-[#00ADD8]/50">$</span>
-                <span className="tracking-wider">go test</span>
-              </div>
-              <div className="w-px h-4 bg-[#00ADD8]/10"></div>
-              <div className="flex items-center gap-2 text-[#00ADD8]/30 font-mono text-xs">
-                <span className="text-[#00ADD8]/50">$</span>
-                <span className="tracking-wider">go run</span>
-              </div>
-            </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-[#00ADD8]/20 to-transparent"></div>
-          </div>
-
           <Skills />
-          
-          {/* Go-style final divider */}
           <hr className="border-0 h-px bg-gradient-to-r from-transparent via-[#00ADD8]/30 to-transparent w-full my-0" />
           
           <Contact />
