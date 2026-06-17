@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+  }
+
+  ::selection {
+    background: rgba(0, 173, 216, 0.3);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00ADD8;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5DC9E2;
+  }
+}
+
+@layer utilities {
+  .text-glow-go {
+    text-shadow: 0 0 30px rgba(0, 173, 216, 0.3),
+                 0 0 60px rgba(0, 173, 216, 0.2),
+                 0 0 80px rgba(0, 173, 216, 0.1);
+  }
+
+  .text-glow-go-strong {
+    text-shadow: 0 0 30px rgba(0, 173, 216, 0.5),
+                 0 0 60px rgba(0, 173, 216, 0.3),
+                 0 0 100px rgba(0, 173, 216, 0.2);
+  }
+
+  .glow-go {
+    box-shadow: 0 0 30px rgba(0, 173, 216, 0.2),
+                0 0 60px rgba(0, 173, 216, 0.1),
+                0 0 80px rgba(0, 173, 216, 0.05);
+  }
+
+  .glow-go-strong {
+    box-shadow: 0 0 40px rgba(0, 173, 216, 0.3),
+                0 0 80px rgba(0, 173, 216, 0.2),
+                0 0 120px rgba(0, 173, 216, 0.1);
+  }
+
+  .matrix-grid {
+    background-image: 
+      linear-gradient(rgba(0, 173, 216, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 173, 216, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .border-glow-go {
+    border: 1px solid rgba(0, 173, 216, 0.2);
+    box-shadow: 0 0 20px rgba(0, 173, 216, 0.05);
+  }
+
+  .border-glow-go-hover:hover {
+    border-color: rgba(0, 173, 216, 0.4);
+    box-shadow: 0 0 30px rgba(0, 173, 216, 0.1);
+  }
+
+  .corner-accent {
+    position: relative;
+  }
+
+  .corner-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid rgba(0, 173, 216, 0.3);
+    border-right: 2px solid rgba(0, 173, 216, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .corner-accent:hover::before {
+    border-color: rgba(0, 173, 216, 0.6);
+    width: 32px;
+    height: 32px;
+  }
+
+  .matrix-rain {
+    background: linear-gradient(180deg, 
+      transparent 0%,
+      rgba(0, 173, 216, 0.02) 50%,
+      transparent 100%
+    );
+    background-size: 100% 200%;
+    animation: matrixRain 8s linear infinite;
+  }
+
+  @keyframes matrixRain {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 200%;
+    }
+  }
+
+  .pulse-go {
+    animation: pulseGo 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGo {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+  }
+
+  .code-text {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .glass-go {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 173, 216, 0.1);
+  }
+
+  .glass-go-hover:hover {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: rgba(0, 173, 216, 0.3);
+    box-shadow: 0 0 30px rgba(0, 173, 216, 0.05);
+  }
+
+  .bg-gradient-go {
+    background: linear-gradient(135deg, #00ADD8 0%, #5DC9E2 100%);
+  }
+
+  .bg-gradient-go-subtle {
+    background: linear-gradient(135deg, rgba(0, 173, 216, 0.1) 0%, rgba(93, 201, 226, 0.05) 100%);
+  }
+
+  .text-gradient-go {
+    background: linear-gradient(135deg, #00ADD8 0%, #5DC9E2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00ADD8 0%, #5DC9E2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .matrix-char {
+    animation: matrixChar 3s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes matrixChar {
+    0% {
+      opacity: 0.1;
+      transform: translateY(-100%) scale(0.8);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0.1;
+      transform: translateY(100%) scale(0.8);
+    }
+  }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #00ADD8 #000000;
+}
