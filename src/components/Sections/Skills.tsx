@@ -55,13 +55,12 @@ export default function Skills() {
             const gradient = "from-[#00ADD8] to-[#5DC9E2]"
             const isLearning = category.category === "Изучаю"
             return (
-              <div 
-                key={index} 
-                className={`group bg-black/80 rounded-2xl p-6 border backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] ${
-                  isLearning 
-                    ? 'border-[#00ADD8]/30 hover:border-[#00ADD8]/60 shadow-[0_0_30px_rgba(0,173,216,0.05)]' 
+              <div
+                key={index}
+                className={`group bg-black/80 rounded-2xl p-6 border backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] ${isLearning
+                    ? 'border-[#00ADD8]/30 hover:border-[#00ADD8]/60 shadow-[0_0_30px_rgba(0,173,216,0.05)]'
                     : 'border-[#00ADD8]/10 hover:border-[#00ADD8]/30'
-                }`}
+                  }`}
               >
                 {/* Go-style corner accent */}
                 <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden opacity-20">
@@ -99,9 +98,9 @@ export default function Skills() {
                           </span>
                         </div>
                         <div className="w-full bg-gray-900 rounded-full h-1.5 overflow-hidden">
-                          <div 
+                          <div
                             className={`h-1.5 rounded-full transition-all duration-1000 ease-out`}
-                            style={{ 
+                            style={{
                               width: `${skill.level}%`,
                               background: `linear-gradient(90deg, #00ADD8, #5DC9E2)`,
                               boxShadow: `0 0 10px rgba(0,173,216,0.3)`
@@ -117,28 +116,32 @@ export default function Skills() {
           })}
         </div>
 
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="group p-4 bg-black/60 rounded-xl border border-[#00ADD8]/10 hover:border-[#00ADD8]/30 transition-all duration-300 hover:bg-black/80">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <a
+            href={skills.stats.title1Link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-6 sm:p-8 md:p-10 bg-black/60 rounded-xl border border-[#00ADD8]/10 hover:border-[#00ADD8]/30 transition-all duration-300 hover:bg-black/80 hover:shadow-[0_0_40px_rgba(0,173,216,0.08)] cursor-pointer"
+          >
             <div className="flex items-center gap-3 justify-center mb-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#00ADD8] animate-pulse"></div>
-              <span className="text-[#00ADD8] font-mono text-sm">{skills.stats.title1}</span>
+              <div className="w-2 h-2 rounded-full bg-[#00ADD8] animate-pulse"></div>
+              <span className="text-[#00ADD8] font-mono text-base sm:text-lg font-semibold">{skills.stats.title1}</span>
             </div>
-            <div className="text-gray-400 text-xs font-light">{skills.stats.subTitle1}</div>
-          </div>
-          <div className="group p-4 bg-black/60 rounded-xl border border-[#00ADD8]/10 hover:border-[#00ADD8]/30 transition-all duration-300 hover:bg-black/80">
+            <div className="text-gray-400 text-sm sm:text-base font-light text-center">Проекты и портфолио →</div>
+          </a>
+
+          <a
+            href={skills.stats.title2Link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-6 sm:p-8 md:p-10 bg-black/60 rounded-xl border border-[#00ADD8]/10 hover:border-[#00ADD8]/30 transition-all duration-300 hover:bg-black/80 hover:shadow-[0_0_40px_rgba(0,173,216,0.08)] cursor-pointer"
+          >
             <div className="flex items-center gap-3 justify-center mb-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#5DC9E2] animate-pulse"></div>
-              <span className="text-[#5DC9E2] font-mono text-sm">{skills.stats.title2}</span>
+              <div className="w-2 h-2 rounded-full bg-[#5DC9E2] animate-pulse"></div>
+              <span className="text-[#5DC9E2] font-mono text-base sm:text-lg font-semibold">{skills.stats.title2}</span>
             </div>
-            <div className="text-gray-400 text-xs font-light">{skills.stats.subTitle2}</div>
-          </div>
-          <div className="group p-4 bg-black/60 rounded-xl border border-[#00ADD8]/10 hover:border-[#00ADD8]/30 transition-all duration-300 hover:bg-black/80">
-            <div className="flex items-center gap-3 justify-center mb-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#00ADD8] animate-pulse"></div>
-              <span className="text-[#00ADD8] font-mono text-sm">{skills.stats.title3}</span>
-            </div>
-            <div className="text-gray-400 text-xs font-light">{skills.stats.subTitle3}</div>
-          </div>
+            <div className="text-gray-400 text-sm sm:text-base font-light text-center">Образование и ценности →</div>
+          </a>
         </div>
       </div>
     </section>

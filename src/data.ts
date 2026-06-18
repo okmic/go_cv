@@ -149,12 +149,10 @@ export const siteData = {
       }
     ],
     stats: {
-      title1: "Go",
-      subTitle1: "Экспертный уровень",
-      title2: "PostgreSQL",
-      subTitle2: "Проектирование и оптимизация",
-      title3: "Docker",
-      subTitle3: "Контейнеризация и деплой",
+      title1: "Проекты",
+      title1Link: "https://okmic.github.io/MicoProjects/",
+      title2: "Обо мне",
+      title2Link: "https://okmic.github.io/MicoEngineer/",
     }
   },
   contacts: {
