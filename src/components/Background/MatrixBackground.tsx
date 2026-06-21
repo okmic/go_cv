@@ -30,13 +30,12 @@ export default function MatrixBackground() {
     let fontSize = getFontSize()
     let columns = 0
     const drops: number[] = []
-    // Go-inspired color palette
     const colors = [
-      '#00ADD8', // Go blue
-      '#5DC9E2', // Light go blue
-      '#29B2DD', // Medium go blue
-      '#007D9C', // Dark go blue
-      '#4DC3E0', // Another shade
+      '#00ADD8', 
+      '#5DC9E2',
+      '#29B2DD',
+      '#007D9C',
+      '#4DC3E0', 
     ]
     let canvasWidth = 0
     let canvasHeight = 0

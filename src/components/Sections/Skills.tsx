@@ -24,7 +24,6 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative">
-      {/* Matrix background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,173,216,0.06),transparent_50%)]"></div>
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `radial-gradient(circle at 20% 50%, rgba(0,173,216,0.1) 0%, transparent 50%)`

@@ -87,7 +87,6 @@ export const siteData = {
       }
     ],
   },
-
   skills: {
     title: "TECH STACK",
     title1: "Мой инструментарий",
