@@ -13,7 +13,7 @@ export const siteData = {
     { id: 'contact', label: 'Контакты' }
   ],
   hero: {
-    title: "Go Developer",
+    title: "Mico Go",
     buttonValue: "Написать",
     description: "Backend-разработчик с 4+ годами опыта. Пишу на Go, проектирую микросервисы, работаю с PostgreSQL, Redis, Docker. Ищу сложные проекты для профессионального роста.",
     stats: [
