@@ -26,16 +26,16 @@ export default function MatrixBackground() {
     }
     const chars = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     const charArray = chars.split('')
-    const getFontSize = () => window.innerWidth < 768 ? 12 : 16
+    const getFontSize = () => window.innerWidth < 768 ? 10 : 14
     let fontSize = getFontSize()
     let columns = 0
     const drops: number[] = []
     const colors = [
-      '#00ADD8', 
+      '#00ADD8',
       '#5DC9E2',
       '#29B2DD',
       '#007D9C',
-      '#4DC3E0', 
+      '#4DC3E0',
     ]
     let canvasWidth = 0
     let canvasHeight = 0
@@ -45,7 +45,7 @@ export default function MatrixBackground() {
       canvasHeight = canvas.getBoundingClientRect().height
       columns = Math.floor(canvasWidth / fontSize)
       for (let i = 0; i < columns; i++) {
-        drops[i] = Math.floor(Math.random() * -canvasHeight / fontSize) - 5
+        drops[i] = Math.floor(Math.random() * canvasHeight / fontSize)
       }
     }
     let lastTime = 0
@@ -55,23 +55,25 @@ export default function MatrixBackground() {
       const elapsed = timestamp - lastTime
       if (elapsed > fpsInterval) {
         lastTime = timestamp - (elapsed % fpsInterval)
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.08)'
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
         ctx.fillRect(0, 0, canvasWidth, canvasHeight)
         ctx.font = `bold ${fontSize}px monospace`
         ctx.textAlign = 'center'
         for (let i = 0; i < drops.length; i++) {
           const char = charArray[Math.floor(Math.random() * charArray.length)]
-          const colorIndex = Math.min(Math.floor(drops[i] / 10), colors.length - 1)
+          const colorIndex = Math.min(Math.floor(Math.random() * colors.length), colors.length - 1)
           ctx.fillStyle = colors[colorIndex]
           const x = i * fontSize + fontSize / 2
           const y = drops[i] * fontSize
           if (y > 0 && y <= canvasHeight + fontSize) {
+            ctx.globalAlpha = 0.5 + Math.random() * 0.4
             ctx.fillText(char, x, y)
+            ctx.globalAlpha = 1
           }
           if (y > canvasHeight + fontSize) {
-            drops[i] = Math.floor(Math.random() * -20) - 5
+            drops[i] = Math.floor(Math.random() * -canvasHeight / fontSize) - 5
           }
-          drops[i] += 1
+          drops[i] += 0.5 + Math.random() * 0.5
         }
       }
       animationId = requestAnimationFrame(draw)
@@ -104,7 +106,7 @@ export default function MatrixBackground() {
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none z-0"
       style={{ 
-        opacity: 0.7,
+        opacity: 0.35,
         transform: 'translateZ(0)'
       }}
     />
