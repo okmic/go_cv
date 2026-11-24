@@ -41,7 +41,7 @@ export default function Hero() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-[69px] justify-center items-center">
           <button 
             onClick={() => scrollToSection('contact')}
             className="w-full cursor-pointer sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-[#00ADD8] text-[#00ADD8] font-bold rounded-lg hover:bg-[#00ADD8] hover:text-white transition-all duration-300 transform hover:scale-105 text-sm sm:text-base font-mono tracking-wider"

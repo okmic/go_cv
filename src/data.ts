@@ -79,7 +79,7 @@ export const siteData = {
         delay: "0.2s"
       },
       { 
-        number: "90",
+        number: "70",
         label: "покрытие кода тестами",
         suffix: "%",
         gradient: "from-[#5DC9E2] to-[#007D9C]",
